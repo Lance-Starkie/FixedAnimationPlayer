@@ -5,7 +5,8 @@ The purpose of FixedAnimationPlayer.gd is to serve as a fixed-point deterministi
 
 ## Usage
 1. Place the FixedAnimationPlayer.gd script alongside your old animation player in Godot.
-2. Use AnimationCompiler.gd to compile animations from the old player into the new Fixed Animation Player. (Project > Tools > Compile Animation)
+2. Use AnimationCompiler.gd to compile animations from the old player into the new Fixed Animation Player.
+   (Project > Tools > Compile Animation)
 3. Both players can now use the same UI and animation data.
 
 ## Forewarning
