@@ -1,4 +1,6 @@
 # Fixed Animation Player
+Originally made in Godot 3.5.1
+
 The Fixed Animation Player is a Godot Engine script designed to work alongside your existing animation player. It allows seamless integration of animation files created by AnimationCompiler.gd into your project, utilizing the same UI and animations.
 
 ## Description
