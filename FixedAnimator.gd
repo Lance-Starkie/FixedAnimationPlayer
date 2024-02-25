@@ -2,9 +2,6 @@ extends Node
 
 # Constants for the animation system.
 const DEFAULT_SPEED_SCALE = 10080
-const FALL_ANIMATION = "fall"
-const IDLE_ANIMATION = "idle"
-const SPECIAL_ANIMATIONS = [IDLE_ANIMATION, FALL_ANIMATION]
 
 # Exported variables for assigning animation player and resource paths.
 export (NodePath) var animation_player_path = NodePath("../AnimationPlayerLegacy")
@@ -74,9 +71,6 @@ func queue(animation_name):
 	if current_animation == "":
 		play(animation_name)
 		return
-	elif not animation_name in SPECIAL_ANIMATIONS:
-		animation_queue.erase(IDLE_ANIMATION)
-		animation_queue.erase(FALL_ANIMATION)
 	animation_queue.append(animation_name)
 
 func is_playing():
@@ -126,7 +120,7 @@ func frame_pass():
 		run_queue()
 		return
 	frame_accumulator += speed_scale
-	if current_animation in SPECIAL_ANIMATIONS and animation_queue.size() > 0:
+	if animation_queue.size() > 0:
 		frame_accumulator = max(DEFAULT_SPEED_SCALE, frame_accumulator)
 	while frame_accumulator >= DEFAULT_SPEED_SCALE:
 		frame_accumulator -= DEFAULT_SPEED_SCALE
@@ -244,6 +238,7 @@ func set_animation_queue(new_queue):
 func clear_queue():
 	set_animation_queue([])
 
+#Don't work fix tomorrow
 func _save():
 	var gamestate = {}
 	var restored_animation_queue = []
